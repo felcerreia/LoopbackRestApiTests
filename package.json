@@ -1,0 +1,29 @@
+{
+  "name": "comprev-rest-api",
+  "version": "1.0.0",
+  "description": "Loopback Rest Api proposal",
+  "main": "build/RestApi.js",
+  "scripts": {
+    "postinstall": "tsd install",
+    "build": "tsc",
+    "test": "mocha --recursive build/test",
+    "pretest": "npm run clean && npm run wait && npm run build",
+    "clean": "rmdir build /s /q",
+    "wait": "ping 127.0.0.1 -n 2 > nul",
+    "start": "npm run clean && npm run wait && npm run build && node build/src/RestApi.js"
+  },
+  "author": {
+    "name": "Fabio Farzat",
+    "email": "fabio@vitalbusiness.com.br"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "apiconnect": "^1.0.2",
+    "typescript": "1.8.9"
+  },
+  "devDependencies": {
+    "mocha": "2.4.5",
+    "expect.js": "0.3.1",
+    "tsd": "0.6.5"
+  }
+}
