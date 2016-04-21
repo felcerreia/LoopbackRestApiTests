@@ -2,7 +2,7 @@
   "name": "comprev-rest-api",
   "version": "1.0.0",
   "description": "Loopback Rest Api proposal",
-  "main": "build/RestApi.js",
+  "main": "RestApi.js",
   "scripts": {
     "postinstall": "tsd install",
     "build": "tsc",
@@ -18,7 +18,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "apiconnect": "^1.0.2",
+    "apiconnect": "1.0.2",
     "typescript": "1.8.9"
   },
   "devDependencies": {
