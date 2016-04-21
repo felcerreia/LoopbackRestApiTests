@@ -1,0 +1,43 @@
+{
+  "name": "Cliente",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Nome": {
+      "type": "string",
+      "required": true,
+      "index": false,
+      "comments": "Nome do Cliente"
+    },
+    "Email": {
+      "type": "string",
+      "required": true,
+      "index": true,
+      "comments": "Email do Cliente"
+    },
+    "DataNasc": {
+      "type": "date",
+      "required": true,
+      "comments": "Data de Nascimento do Cliente"
+    },
+    "Idade": {
+      "type": "number",
+      "required": true,
+      "comments": "Idade já computada do Cliente"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "orders": {
+      "type": "hasMany",
+      "model": "Endereco",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Endereco",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validate": true
+  },
+  "properties": {
+    "Bairro": {
+      "type": "string",
+      "required": true
+    },
+    "Cidade": {
+      "type": "string",
+      "required": true
+    },
+    "Rua": {
+      "type": "string",
+      "required": true
+    },
+    "Tipo": {
+      "type": "string",
+      "required": true,
+      "comments": "Residencial | Comercial"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "cliente": {
+      "type": "belongsTo",
+      "model": "Cliente",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
