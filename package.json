@@ -10,7 +10,7 @@
     "pretest": "npm run clean && npm run wait && npm run build",
     "clean": "rmdir build /s /q",
     "wait": "ping 127.0.0.1 -n 2 > nul",
-    "start": "npm run clean && npm run wait && npm run build && node build/src/RestApi.js"
+    "start": "npm run clean && npm run wait && npm run build && SET NODE_ENV=development && node build/src/RestApi.js"
   },
   "author": {
     "name": "Fabio Farzat",
