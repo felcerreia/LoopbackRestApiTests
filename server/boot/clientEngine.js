@@ -11,5 +11,5 @@ module.exports = function(server) {
       template.stream({name: 'Fabio Farzat'}).pipe(res);
     });
   
-  server.use(router);
+  server.use(router);  
 };
