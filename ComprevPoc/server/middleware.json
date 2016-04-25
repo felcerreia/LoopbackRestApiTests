@@ -7,15 +7,14 @@
   "initial": {
     "compression": {}
   },
-  "session": {
-  },
-  "auth": {
-  },
-  "parse": {
-  },
+  "session": {},
+  "auth": {},
+  "parse": {},
   "routes": {
     "loopback#rest": {
-      "paths": ["${restApiRoot}"]
+      "paths": [
+        "${restApiRoot}"
+      ]
     }
   },
   "files": {
@@ -27,7 +26,7 @@
     "loopback#urlNotFound": {}
   },
   "final:after": {
-     "./middleware/custom-error": {},
+    "./middleware/custom-error": {},
     "errorhandler": {}
   }
 }

@@ -20,5 +20,11 @@
   "Endereco": {
     "dataSource": "db",
     "public": true
+  },
+  "inserirClienteComEndereco": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }

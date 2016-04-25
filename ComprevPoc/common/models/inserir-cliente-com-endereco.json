@@ -1,0 +1,26 @@
+{
+  "name": "inserirClienteComEndereco",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "cliente": {
+      "type": "Cliente",
+      "required": true,
+      "comments": "Cliente do Dto"
+    },
+    "Enderecos": {
+      "type": [
+        "Endereco"
+      ],
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
