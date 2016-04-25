@@ -1,5 +1,5 @@
 {
-  "name": "ComprevPoc",
+  "name": "comprevpoc",
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
@@ -16,9 +16,9 @@
     "loopback-component-explorer": "2.4.0",
     "loopback-datasource-juggler": "2.39.0",
     "marko": "3.1.6",
-    "phantomjs": "2.1.7",
+    "phantom": "^2.0.10",
     "serve-favicon": "2.0.1",
-    "webpage": "^0.3.0"
+    "webpage": "0.3.0"
   },
   "devDependencies": {
     "jshint": "^2.5.6",
