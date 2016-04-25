@@ -4,7 +4,7 @@ module.exports = function(server) {
   
   
   router.get('/Clientes', function (req, res) {
-      var templatePath = require.resolve('../../client/index/index.marko');
+      var templatePath = require.resolve('../../client/clientes/index.marko');
       var template = require('marko').load(templatePath);
 
       server.models.Cliente.find( {limit: 100},  function(err, returned_instances) {  

@@ -17,7 +17,7 @@ app.start = function() {
 };
 
 bootOptions = { "appRootDir": __dirname, 
-                "bootScripts" : [ "/boot/root.js", "/boot/DefaultData.js", "/boot/clientEngine.js"] };
+                "bootScripts" : ["/boot/root.js", "/boot/DefaultData.js", "/boot/clientEngine.js", "/boot/pdfEngine.js"] };
 
 
 // Bootstrap the application, configure models, datasources and middleware.
