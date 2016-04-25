@@ -24,32 +24,21 @@ module.exports = function (server) {
     };
 
     router.get('/Pdf', function (req, res) {
+        //Renderiza a própria view
+        var templatePath = require.resolve('../../client/clientes/index.marko');
+        var template = require('marko').load(templatePath);
 
-        try {
+        server.models.Cliente.find({ limit: 100 }, function (err, returned_instances) {
+            //ao invés de escrever na stream de saída, compila o html
+            var html = template.renderSync({ name: 'Visitante', clientes: returned_instances });
             
-            var templatePath = require.resolve('../../client/clientes/index.marko');
-            var template = require('marko').load(templatePath);
-
-            server.models.Cliente.find({ limit: 100 }, function (err, returned_instances) {
-                var html = template.renderSync({ name: 'Visitante', clientes: returned_instances });
-                
-                //console.log(`html: ${html}`);
-
-                pdf.create(html, options).toFile("D:/GitHub/LoopbackRestApiTests/ComprevPoc/client/pdfs/clientes.pdf", function(err, response){
-                    //console.log(response.filename);
-                    res.redirect('/pdfs/clientes.pdf');
-                });
+            //passa o html para o criador com as opções preciamente definidas
+            pdf.create(html, options).toFile("D:/GitHub/LoopbackRestApiTests/ComprevPoc/client/pdfs/clientes.pdf", function (err, response) {
+                //console.log(response.filename);
+                res.redirect('/pdfs/clientes.pdf');
             });
-        }
-        catch (err) {
-            res.setHeader('Content-Type', 'text/html; charset=utf-8');
-            var templateErrorPath = require.resolve('../../client/error.marko');
-            template = require('marko').load(templateErrorPath);
-            template.stream({ name: 'Visitante', error: err }).pipe(res);
-        }
-
-
+        });
     });
-    
+
     server.use(router);
 };
