@@ -2,20 +2,28 @@
 <html lang="en">
     <head>
         <title>Marko Templating Engine - Loopback Rest Api</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     </head>
     <body>
-        <h1>
-            Hello ${data.name}!
-        </h1>
+        <h2>
+            Olá <em>${data.name}</em>!
+        </h2>
 
-        <ul if(notEmpty(data.clientes))>
-            <li class="color" for(cliente in data.clientes)>
-                <p>${cliente.Nome} - ${cliente.Email}</p>
-            </li>
-        </ul>
-        <div else>
-            Nenhum cliente encontrado!
+        <div class="table-responsive" style="width: 450px; align: center">
+            <table class="table table-hover" if(notEmpty(data.clientes))>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr for(cliente in data.clientes)>
+                        <td>${cliente.Nome}</td>
+                        <td>${cliente.Email}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
     </body>
 </html>

@@ -6,27 +6,25 @@ function create(__helpers) {
       forEach = __helpers.f;
 
   return function render(data, out) {
-    out.w("<!DOCTYPE html> <html lang=\"en\"> <head> <title>Marko Templating Engine - Loopback Rest Api</title> </head> <body> <h1> Hello " +
+    out.w("<!DOCTYPE html> <html lang=\"en\"> <head> <title>Marko Templating Engine - Loopback Rest Api</title> <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" integrity=\"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7\" crossorigin=\"anonymous\"> </head> <body> <h2> Olá <em>" +
       escapeXml(data.name) +
-      "! </h1> ");
+      "</em>! </h2> <div class=\"table-responsive\" style=\"width: 450px\"> ");
 
     if (notEmpty(data.clientes)) {
-      out.w("<ul> ");
+      out.w("<table class=\"table table-hover\"> <thead> <tr> <th>Nome</th> <th>Email</th> </tr> </thead> <tbody> ");
 
       forEach(data.clientes, function(cliente) {
-        out.w("<li class=\"color\"> <p>" +
+        out.w("<tr> <td>" +
           escapeXml(cliente.Nome) +
-          " - " +
+          "</td> <td>" +
           escapeXml(cliente.Email) +
-          "</p> </li>");
+          "</td> </tr>");
       });
 
-      out.w(" </ul>");
-    } else {
-      out.w("<div> Nenhum cliente encontrado! </div>");
+      out.w(" </tbody> </table>");
     }
 
-    out.w(" </body> </html>");
+    out.w(" </div> </body> </html>");
   };
 }
 
