@@ -1,65 +1,46 @@
-module.exports = function(server) {
-  var router    =  server.loopback.Router();
-  var phantom = require('phantom');
-  var path = require('path');
-  var mime = require('mime');
-  
-  router.get('/Pdf', function (req, res){
+module.exports = function (server) {
+    var router = server.loopback.Router();
+    var pdf = require('html-pdf');
 
-        //res.setHeader('Content-Type', 'text/html; charset=utf-8');
-        try{
+    var options = {
+        format: 'A4',
+        header: {
+            "height": "45mm",
+            "contents": '<div style="text-align: center;">TOPO</div>'
+        },
+        "footer": {
+            "height": "28mm",
+            "contents": '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>'
+        }
+    };
+
+    router.get('/Pdf', function (req, res) {
+
+        try {
             
-            phantom.create()
-                .then(instance => {
-                    phInstance = instance;
-                    return instance.createPage();
-                })
-                .then(page => {
-                    sitepage = page;
-                    return page.open('http://localhost:3000/Clientes');
-                })
-                .then(status => {
-                    console.log('result:', status);
-                    //sitepage.set("paperSize", { format: "A4", orientation: 'portrait', margin: '1cm' });
-                    //console.log('page.set');
-                    sitepage.render("D:/GitHub/LoopbackRestApiTests/ComprevPoc/client/pdfs/clientes.pdf");
-                    //console.log('page.render');
-                    sitepage.close();
-                    //console.log('page.close');
-                    phInstance.exit();
-                    console.log('phantom.exit');
-                                        
-                    var file = 'D:/GitHub/LoopbackRestApiTests/ComprevPoc/client/pdfs/clientes.pdf';
+            var templatePath = require.resolve('../../client/clientes/index.marko');
+            var template = require('marko').load(templatePath);
 
-                    var filename = path.basename(file);
-                    var mimetype = mime.lookup(file);
+            server.models.Cliente.find({ limit: 100 }, function (err, returned_instances) {
+                var html = template.renderSync({ name: 'Visitante', clientes: returned_instances });
+                
+                //console.log(`html: ${html}`);
 
-                    res.setHeader('Content-disposition', 'attachment; filename=' + filename);
-                    res.setHeader('Content-type', mimetype);
-
-                    var filestream = fs.createReadStream(file);
-                    filestream.pipe(res);
-                    
-                    
-                })
-                .catch(error => {
-                    res.setHeader('Content-Type', 'text/html; charset=utf-8');
-                    var templateErrorPath = require.resolve('../../client/error.marko');
-                    template = require('marko').load(templateErrorPath);
-                    template.stream({name: 'Visitante', error: err}).pipe(res);
-                    console.log(error);
-                    phInstance.exit();
+                pdf.create(html, options).toFile("D:/GitHub/LoopbackRestApiTests/ComprevPoc/client/pdfs/clientes.pdf", function(err, response){
+                    //console.log(response.filename);
+                    res.redirect('/pdfs/clientes.pdf');
                 });
-            }
-        catch (err){
+            });
+        }
+        catch (err) {
             res.setHeader('Content-Type', 'text/html; charset=utf-8');
             var templateErrorPath = require.resolve('../../client/error.marko');
             template = require('marko').load(templateErrorPath);
-            template.stream({name: 'Visitante', error: err}).pipe(res);
+            template.stream({ name: 'Visitante', error: err }).pipe(res);
         }
-        
-        
-  });
-  
-  server.use(router);
+
+
+    });
+    
+    server.use(router);
 };
