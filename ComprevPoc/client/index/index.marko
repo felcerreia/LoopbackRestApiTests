@@ -7,5 +7,15 @@
         <h1>
             Hello ${data.name}!
         </h1>
+
+        <ul if(notEmpty(data.clientes))>
+            <li class="color" for(cliente in data.clientes)>
+                <p>${cliente.Nome} - ${cliente.Email}</p>
+            </li>
+        </ul>
+        <div else>
+            Nenhum cliente encontrado!
+        </div>
+
     </body>
 </html>

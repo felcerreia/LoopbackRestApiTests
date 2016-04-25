@@ -16,6 +16,10 @@ app.start = function() {
   });
 };
 
+bootOptions = { "appRootDir": __dirname, 
+                "bootScripts" : [ "/boot/root.js", "/boot/DefaultData.js", "/boot/clientEngine.js"] };
+
+
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
 boot(app, __dirname, function(err) {
