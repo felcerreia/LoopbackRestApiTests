@@ -1,3 +1,12 @@
+/**
+ * https://www.npmjs.com/package/html-pdf
+ * 
+ * Seria um get com parametros. Exemplo:
+ * 
+ * Qual view renderizar
+ * Quais opções (ler um json talvez)
+ */
+
 module.exports = function (server) {
     var router = server.loopback.Router();
     var pdf = require('html-pdf');
