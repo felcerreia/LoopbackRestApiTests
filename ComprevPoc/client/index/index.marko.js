@@ -6,12 +6,10 @@ function create(__helpers) {
       forEach = __helpers.f;
 
   return function render(data, out) {
-    out.w("<!DOCTYPE html> <html lang=\"en\"> <head> <title>Marko Templating Engine - Loopback Rest Api</title> <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" integrity=\"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7\" crossorigin=\"anonymous\"> </head> <body> <h2> Olá <em>" +
-      escapeXml(data.name) +
-      "</em>! </h2> <div class=\"table-responsive\" style=\"width: 450px\"> ");
+    out.w("<!DOCTYPE html> <html lang=\"en\"> <head> <title>Lista de Clientes</title> <script src=\"https://code.jquery.com/jquery-1.12.0.min.js\"></script> <script src=\"https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js\"></script> <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css\"> <link rel=\"stylesheet\" type=\"text/css\" href=\"https://datatables.net/media/css/site-examples.css?_=d9c2c842fd3bd3ec7e90423dc6c620c1\"> <script>\r\n            $(document).ready(function() {\r\n                $('#example').DataTable();\r\n            } );\r\n        </script> </head> <body class=\"wide comments example\"> <div class=\"fw-container\"> <div class=\"nav-main\">&nbsp;</div> <div class=\"fw-body\"> <div class=\"content\"> <h1 class=\"page_title\">Lista de Clientes</h1> <div class=\"info\">&nbsp;</div> ");
 
     if (notEmpty(data.clientes)) {
-      out.w("<table class=\"table table-hover\"> <thead> <tr> <th>Nome</th> <th>Email</th> </tr> </thead> <tbody> ");
+      out.w("<table id=\"example\" class=\"display\" cellspacing=\"0\" width=\"80%\"> <thead> <tr> <th>Nome</th> <th>Email</th> </tr> </thead> <tbody> ");
 
       forEach(data.clientes, function(cliente) {
         out.w("<tr> <td>" +
@@ -24,7 +22,7 @@ function create(__helpers) {
       out.w(" </tbody> </table>");
     }
 
-    out.w(" </div> </body> </html>");
+    out.w(" </div> </div> </div> </body> </html>");
   };
 }
 
