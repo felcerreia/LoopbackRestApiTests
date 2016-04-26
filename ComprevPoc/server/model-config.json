@@ -14,15 +14,19 @@
     ]
   },
   "Cliente": {
-    "dataSource": "db",
-    "public": true
+    "dataSource": "mysql",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   },
   "Endereco": {
-    "dataSource": "db",
-    "public": true
+    "dataSource": "mysql",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   },
   "inserirClienteComEndereco": {
-    "dataSource": "db",
+    "dataSource": "mysql",
     "public": true,
     "$promise": {},
     "$resolved": true

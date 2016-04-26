@@ -3,5 +3,14 @@
     "name": "db",
     "connector": "memory",
     "file": "db.json"
+  },
+  "mysql": {
+    "host": "177.70.19.23",
+    "port": 3306,
+    "database": "comprev-tests",
+    "password": "12345678",
+    "name": "mysql",
+    "connector": "mysql",
+    "user": "strongloop"
   }
 }
