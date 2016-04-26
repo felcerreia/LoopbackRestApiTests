@@ -22,7 +22,7 @@ function create(__helpers) {
       out.w(" </tbody> </table>");
     }
 
-    out.w(" </div> </div> </div> </body> </html>");
+    out.w(" </div> </div> </div> <div style=\"page-break-before: always;\">Vai pra outra página na impressão</div> </body> </html>");
   };
 }
 

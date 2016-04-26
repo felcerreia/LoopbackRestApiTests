@@ -13,30 +13,31 @@
         </script>
     </head>
     <body class="wide comments example">
-    <div class="fw-container">
-        <div class="nav-main">&nbsp;</div>
-        <div class="fw-body">
-			<div class="content">
-                <h1 class="page_title">Lista de Clientes</h1>
-                <div class="info">
-                    &nbsp;
+        <div class="fw-container">
+            <div class="nav-main">&nbsp;</div>
+            <div class="fw-body">
+                <div class="content">
+                    <h1 class="page_title">Lista de Clientes</h1>
+                    <div class="info">
+                        &nbsp;
+                    </div>
+                    <table id="example" class="display" cellspacing="0" width="80%"  if(notEmpty(data.clientes))>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr for(cliente in data.clientes)>
+                                <td>${cliente.Nome}</td>
+                                <td>${cliente.Email}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <table id="example" class="display" cellspacing="0" width="80%"  if(notEmpty(data.clientes))>
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr for(cliente in data.clientes)>
-                            <td>${cliente.Nome}</td>
-                            <td>${cliente.Email}</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
-    </div>
+        <div style="page-break-before: always;">Vai pra outra página na impressão</div>
     </body>
 </html>
