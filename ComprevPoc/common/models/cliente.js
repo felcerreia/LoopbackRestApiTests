@@ -24,7 +24,7 @@ module.exports = function (Cliente) {
   
             var tansactionObj = { transaction: tx };
   
-            dto.cliente.create(dto.Cliente, function (err, tansactionObj, obj) {
+            Cliente.create(Cliente, function (err, tansactionObj, obj) {
                 if (err) throw err;
                 console.log('> Erro durante criação do cliente');
             });
