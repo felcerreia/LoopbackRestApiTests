@@ -2,7 +2,7 @@ var loopback = require('loopback');
 var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
-
+app.use('/api', loopback.rest());
 app.start = function() {
   // start the web server
   return app.listen(function() {
@@ -43,7 +43,7 @@ app.get('remoting').errorHandler = {
 
 app.buildError = function(err) {
   err.message = err.message;
-  err.status = err.statusCode; // override the status
+  err.status = 408; // override the status
 
   // remove the statusCode property
   delete err.statusCode;
