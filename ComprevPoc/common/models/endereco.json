@@ -1,0 +1,37 @@
+{
+  "name": "Endereco",
+  "plural": "Enderecos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Tipo": {
+      "type": "string",
+      "required": true
+    },
+    "Numero": {
+      "type": "number",
+      "required": true
+    },
+    "Bairro": {
+      "type": "string",
+      "required": true
+    },
+    "Cidade": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "pertence": {
+      "type": "belongsTo",
+      "model": "Cliente",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
