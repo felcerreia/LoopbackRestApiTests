@@ -1,0 +1,8 @@
+
+
+Doc full das classes e métodos por versão
+	http://apidocs.strongloop.com/loopback/
+Doc padrão
+	https://docs.strongloop.com/display/SL/Installing+StrongLoop
+Marcas e afins
+	http://loopback.io/
