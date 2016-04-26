@@ -12,7 +12,7 @@
       "required": true,
       "comments": "Cliente do Dto"
     },
-    "Enderecos": {
+    "enderecos": {
       "type": [
         "Endereco"
       ],
