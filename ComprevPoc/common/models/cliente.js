@@ -59,7 +59,7 @@ module.exports = function (Cliente) {
                             throw err;
                         }
 
-                        console.log(JSON.stringify(dto));
+                        //console.log(JSON.stringify(dto));
 
                         callback(null, JSON.stringify(dto));
                     });
