@@ -27,7 +27,7 @@
   },
   "inserirClienteComEndereco": {
     "dataSource": "mysql",
-    "public": true,
+    "public": false,
     "$promise": {},
     "$resolved": true
   }
