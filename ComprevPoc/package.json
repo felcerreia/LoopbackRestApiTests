@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node .",
     "pretest": "jshint .",
+    "postinstall": "bower install",
     "posttest": "nsp check"
   },
   "dependencies": {

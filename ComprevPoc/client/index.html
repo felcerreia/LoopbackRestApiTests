@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Inicial</title>
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
-        <link rel="stylesheet" type="text/css" href="https://datatables.net/media/css/site-examples.css?_=d9c2c842fd3bd3ec7e90423dc6c620c1">
-    </head>
-    <body class="wide comments example">
-    <div class="fw-container">
-        <div class="nav-main">&nbsp;</div>
-        <div class="fw-body">
-			<div class="content">
-                <h1 class="page_title">Comprev index</h1>
-                <div class="info">&nbsp;</div>
+
+<head>
+    <title>Inicial</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://datatables.net/media/css/site-examples.css?_=d9c2c842fd3bd3ec7e90423dc6c620c1">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+</head>
+
+<body ng-app="app">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Inicio</a>
+                <a class="navbar-brand" href="#/clientes">Cliente</a>
             </div>
-            <p><a href="/Clientes">Lista de clientes </a></p>
-            <p><a href="/Pdf">Gerar pdf</a></p>
-            <p><a href="/explorer">Auto documentação</a></p>
-            <p><a href="/Status">Uptime da API</a></p>
-            <p><a href="/Nao-existo">Erro default</a></p>
-            <p><a href="#">Notem o favicon!</a></p>
         </div>
     </div>
-    </body>
+
+    <div class="container">
+        <div ng-view></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-resource.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/lb-services.js"></script>
+    <script src="js/directives/clienteRow.js"></script>
+    <script src="js/controllers/sample.js"></script>
+</body>
+
 </html>

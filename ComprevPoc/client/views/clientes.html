@@ -1,0 +1,74 @@
+<div class="page-header">
+  <h1>Lista de Clientes</h1>
+</div>
+<form name='clientForm' role='form' novalidate>
+  <div class='form-group'>
+    <label for='name'>Nome:</label>
+    <input class='form-control' name="Nome" ng-model='newCliente.Nome' type='text' required>
+    <span class='help-block' ng-show='clientForm.Nome.$error.required'>Nome é obrigatório</span>
+  </div>
+  <div class='form-group' >
+    <label for='age'>Email:</label>
+    <input class='form-control' name="Email" ng-model='newCliente.Email' type='email' required>
+    <span class='help-block' ng-show='clientForm.Email.$error.required'>Email é obrigatório</span>
+    <span class='help-block' ng-show='clientForm.Email.$error.email'>Este Email não é válido</span>
+  </div>
+  <div class='form-group'>
+    <label for='percentage'>Data de Nascimento</label>
+    <input class='form-control' name="DataNasc" ng-model='newCliente.DataNasc' type='text' required>
+    <span class='help-block' ng-show='clientForm.DataNasc.$error.required'>Data de Nascimento é obrigatória</span>
+  </div>
+  <div class='form-group'>
+    <label for='percentage'>Idade</label>
+    <input class='form-control' name="Idade" ng-model='newCliente.Idade' type='number' required>
+    <span class='help-block' ng-show='clientForm.Idade.$error.required'>Idade é obrigatória</span>
+  </div>
+  <button class="btn btn-primary" ng-click='addCliente()' ng-disabled='clientForm.$invalid'>
+    Inserir
+  </button>
+</form>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Idade</th>
+    <th>Data de Nascimento</th>
+    <th>Ações</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat='cliente in clientes' cliente-row>
+    </tr>
+  </tbody>
+</table>
+
+<script id='cliente.html' type='text/ng-template'>
+    <td ng-if-start='!isEditing'>{{ cliente.id }}</td>
+    <td>{{ cliente.Nome }}</td>
+    <td>{{ cliente.Email }}</td>
+    <td>{{ cliente.Idade }}</td>
+    <td>{{ cliente.DataNasc | date:'dd/MM/yyyy' }}</td>
+    <td ng-if-end>
+        <a class='btn btn-primary' href='' ng-click='editCliente()'>
+        Editar
+        </a>
+        <a class='btn btn-danger' href='' ng-click='deleteCliente()'>
+        Delete
+        </a>
+    </td>
+    <td ng-if-start='isEditing'>{{ cliente.id }}</td>
+    <td><input class='form-control' ng-model='cliente.Nome' type='text'></td>
+    <td><input class='form-control' ng-model='cliente.Email' type='text'></td>
+    <td><input class='form-control' ng-model='cliente.Idade' type='text'></td>
+    <td><input class='form-control' ng-model='cliente.DataNasc' type='text'></td>
+    <td ng-if-end>
+        <a class='btn btn-primary' href='' ng-click='updateCliente()'>
+          Salvar
+        </a>
+        <a class='btn btn-danger' href='' ng-click='cancelEdit()'>
+          Cancel
+        </a>
+    </td>
+</script>

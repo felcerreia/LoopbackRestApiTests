@@ -6,6 +6,7 @@ module.exports = function() {
     var templateErrorPath = require.resolve('../../client/error.marko');
     var template = require('marko').load(templateErrorPath);
     template.stream({name: 'Visitante', error: err}).pipe(res);
+    res.status(404);
     res.setHeader('Content-Type', 'text/html; charset=utf-8'); 
   }
 }

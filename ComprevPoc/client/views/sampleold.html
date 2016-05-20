@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h1>Lista de Clientes</h1>
+</div>
+<form name="clienteForm" novalidate ng-submit="addCliente()">
+  <div class="form-group"
+      ng-class="{'has-error': clienteForm.content.$invalid
+        && clienteForm.content.$dirty}">
+    <input type="text" class="form-control focus" name="Nome"
+        placeholder="Nome" autocomplete="off" required
+        ng-model="newCliente.Nome">
+    <input type="text" class="form-control focus" name="Email"
+        placeholder="Email" autocomplete="off" required
+        ng-model="newCliente.Email">
+    <input type="text" class="form-control focus" name="DataNasc"
+        placeholder="Data de Nascimento" autocomplete="off" required
+        ng-model="newCliente.DataNasc">
+    <input type="text" class="form-control focus" name="Idade"
+        placeholder="Idade" autocomplete="off" required
+        ng-model="newCliente.Idade">
+    <span class="has-error control-label" ng-show="
+        clienteForm.content.$invalid && clienteForm.content.$dirty">
+      Content is required.
+    </span>
+  </div>
+  <button class="btn btn-default" ng-disabled="clienteForm.$invalid">Add</button>
+</form>
+<hr>
+  <md-content class="md-padding" layout="row" layout-wrap>
+      <md-card ng-repeat="cliente in clientes">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{cliente.Nome}}</span>
+            <span class="md-subhead">{{cliente.Email}}</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-sm card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button ng-click="removeCliente(cliente)">Remover</md-button>
+        </md-card-actions>
+      </md-card>
+  </md-content>

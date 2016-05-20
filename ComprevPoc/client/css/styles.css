@@ -1,0 +1,12 @@
+body {
+    padding-top: 50px; 
+}
+.glyphicon-remove:hover {
+  cursor:pointer
+}
+
+.btn1 {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}
