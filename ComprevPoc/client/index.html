@@ -5,10 +5,11 @@
     <title>Inicial</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://datatables.net/media/css/site-examples.css?_=d9c2c842fd3bd3ec7e90423dc6c620c1">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/jquery-ui/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/jtable/lib/themes/metro/blue/jtable.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/vendor/angular-ui-grid/ui-grid.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-
 </head>
 
 <body ng-app="app">
@@ -18,6 +19,7 @@
                 <a class="navbar-brand" href="#">Inicio</a>
                 <a class="navbar-brand" href="#/clientes">Clientes</a>
                 <a class="navbar-brand" href="#/grid">Clientes (Grid)</a>
+                <a class="navbar-brand" href="#/jtable">Clientes (jTable)</a>
             </div>
         </div>
     </div>
@@ -26,18 +28,22 @@
         <div ng-view></div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/vendor/jquery/dist/jquery.js"></script>
+    <script src="/vendor/jquery-ui/jquery-ui.js"></script>
+    <script src="/vendor/jtable/lib/jquery.jtable.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-resource.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="/vendor/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="/vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="/vendor/angular-ui-grid/ui-grid.js"></script>
     <script src="js/app.js"></script>
     <script src="js/services/lb-services.js"></script>
     <script src="js/directives/clienteRow.js"></script>
     <script src="js/controllers/sample.js"></script>
     <script src="js/controllers/clientes-ui-grid.js"></script>
+    <script src="js/controllers/clientes-jtable.js"></script>
 </body>
 
 </html>

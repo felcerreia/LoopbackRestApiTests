@@ -1,4 +1,66 @@
 <div class="page-header">
   <h1>Lista de Clientes</h1>
 </div>
+<form name='clientForm' role='form' novalidate>
+  <div class='form-group'>
+    <label for='name'>Nome:</label>
+    <input class='form-control' name="Nome" ng-model='newCliente.Nome' type='text' required>
+    <span class='help-block' ng-show='clientForm.Nome.$error.required'>Nome é obrigatório</span>
+  </div>
+  <div class='form-group' >
+    <label for='age'>Email:</label>
+    <input class='form-control' name="Email" ng-model='newCliente.Email' type='email' required>
+    <span class='help-block' ng-show='clientForm.Email.$error.required'>Email é obrigatório</span>
+    <span class='help-block' ng-show='clientForm.Email.$error.email'>Este Email não é válido</span>
+  </div>
+  <div class='form-group'>
+    <label for='percentage'>Data de Nascimento</label>
+    <input class='form-control' name="DataNasc" ng-model='newCliente.DataNasc' type='text' required>
+    <span class='help-block' ng-show='clientForm.DataNasc.$error.required'>Data de Nascimento é obrigatória</span>
+  </div>
+  <div class='form-group'>
+    <label for='percentage'>Idade</label>
+    <input class='form-control' name="Idade" ng-model='newCliente.Idade' type='number' required>
+    <span class='help-block' ng-show='clientForm.Idade.$error.required'>Idade é obrigatória</span>
+  </div>
+  <button class="btn btn-primary" ng-click='addCliente()' ng-disabled='clientForm.$invalid'>
+    Inserir
+  </button>
+</form>
+
 <div id="grid1" ui-grid="gridOptions" ui-grid-pagination class="grid"></div>
+
+<script type="text/ng-template" id="editModal.html">
+  <div class="modal-header">
+    <h3 class="modal-title">Editar</h3>
+  </div>
+  <div class="modal-body">
+    <form name='clientForm' role='form' novalidate>
+      <div class='form-group'>
+        <label for='name'>Nome:</label>
+        <input class='form-control' name="Nome" ng-model='editCliente.Nome' type='text' required>
+        <span class='help-block' ng-show='clientForm.Nome.$error.required'>Nome é obrigatório</span>
+      </div>
+      <div class='form-group'>
+        <label for='age'>Email:</label>
+        <input class='form-control' name="Email" ng-model='editCliente.Email' type='email' required>
+        <span class='help-block' ng-show='clientForm.Email.$error.required'>Email é obrigatório</span>
+        <span class='help-block' ng-show='clientForm.Email.$error.email'>Este Email não é válido</span>
+      </div>
+      <div class='form-group'>
+        <label for='percentage'>Data de Nascimento</label>
+        <input class='form-control' name="DataNasc" ng-model='editCliente.DataNasc' type='text' required>
+        <span class='help-block' ng-show='clientForm.DataNasc.$error.required'>Data de Nascimento é obrigatória</span>
+      </div>
+      <div class='form-group'>
+        <label for='percentage'>Idade</label>
+        <input class='form-control' name="Idade" ng-model='editCliente.Idade' type='number' required>
+        <span class='help-block' ng-show='clientForm.Idade.$error.required'>Idade é obrigatória</span>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()" ng-disabled='clientForm.$invalid'>Confirmar</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+  </div>
+</script>
